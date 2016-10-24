@@ -67,3 +67,6 @@ Content/StarterContent/*
 
 # Tank Content
 Content/Tank/*
+
+# Level Content
+Content/Levels/*
