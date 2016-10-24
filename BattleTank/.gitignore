@@ -64,3 +64,6 @@ DerivedDataCache/*
 
 # Starter Content
 Content/StarterContent/*
+
+# Tank Content
+Content/Tank/*
