@@ -14,6 +14,12 @@ class BATTLETANK_API ATank : public APawn
 public:
 	void AimAt(FVector HitLocation);
 
+	UFUNCTION(BluePrintCallable, Category = Setup)
+	void SetBarrelReference(UStaticMeshComponent* BarrelToSet);
+
+	UPROPERTY(EditAnywhere, Category = Firing)
+	float LaunchSpeed = 100000; // TODO Find sensible default. Current 1000 m/s
+
 protected:
 	UTankAimingComponent* TankAimingComponent = nullptr;
 
