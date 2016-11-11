@@ -5,48 +5,22 @@
 #include "TankAIController.h"
 
 
-// Called when the game starts or when spawned
-void ATankAIController::BeginPlay()
-{
-	Super::BeginPlay();
-
-	auto PlayerTank = GetPlayerTank();
-
-	if (!PlayerTank)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Cannot aim at Player tank"));
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Aiming at %s"), *(PlayerTank->GetName()));
-	}
-
-}
-
 // Called every frame
 void ATankAIController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	if (GetPlayerTank())
-	{
+
+	auto PlayerTank = Cast<ATank>(GetWorld()->GetFirstPlayerController()->GetPawn());
+	auto ControlledTank = Cast<ATank>(GetPawn());
+	
+	if (PlayerTank) 
+	{ 
 		// TODO Move towards player
 
 		// Aim towards Player
-		GetControlledTank()->AimAt(GetPlayerTank()->GetActorLocation());
+		ControlledTank->AimAt(PlayerTank->GetActorLocation());
 
 		// Fire if Ready
-
+		ControlledTank->Fire(); // TODO limit firing rate
 	}
-}
-
-ATank* ATankAIController::GetControlledTank() const
-{
-	return Cast<ATank>(GetPawn());
-}
-
-ATank* ATankAIController::GetPlayerTank() const
-{
-	auto PlayerPawn = GetWorld()->GetFirstPlayerController()->GetPawn();
-	if (!PlayerPawn) { return nullptr; }
-	return Cast<ATank>(PlayerPawn);
 }
