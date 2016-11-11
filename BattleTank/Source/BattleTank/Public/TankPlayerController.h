@@ -20,7 +20,7 @@ private:
 	// Called every frame
 	virtual void Tick(float DeltaSeconds) override;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditDefaultsOnly)
 	float CrosshairXLocation = 0.5, 
 		CrosshairYLocation = 0.33333,
 		LineTraceRange = 1000000.0;
