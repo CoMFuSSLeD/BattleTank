@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright Joe Fernandez 2016
 
 #pragma once
 
@@ -15,10 +15,10 @@ class BATTLETANK_API UTankTracks : public UStaticMeshComponent
 	
 public:
 	// Sets a throttle between -1 and +1
-	UFUNCTION(BlueprintCallable, Category = Input)
+	UFUNCTION(BlueprintCallable, Category = "Input")
 	void SetThrottle(float Throttle);
 	
 	// Max force per track in Newtons
-	UPROPERTY(EditDefaultsOnly, Category = Setup)
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 	float TankMaxDrivingForce = 400000; // Assume 40 ton tank and 1g acceleration
 };

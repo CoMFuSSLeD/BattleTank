@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright Joe Fernandez 2016
 
 #include "BattleTank.h"
 #include "TankTracks.h"
