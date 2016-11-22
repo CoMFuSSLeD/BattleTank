@@ -16,6 +16,9 @@ protected:
 	UFUNCTION(BlueprintCallable, Category = "Setup")
 	ATank* GetControlledTank() const;
 
+	UFUNCTION(BlueprintImplementableEvent, Category = "Setup")
+	void FoundAimingComponent(UTankAimingComponent* AimingCompRef);
+
 private:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
