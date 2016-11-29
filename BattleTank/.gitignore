@@ -61,12 +61,3 @@ Intermediate/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
-
-# Starter Content
-Content/StarterContent/*
-
-# Tank Content
-Content/Tank/*
-
-# Level Content
-Content/Levels/*
