@@ -38,7 +38,7 @@ public:
 	EFiringStatus GetFiringStatus() const;
 
 	UFUNCTION(BluePrintCallable, Category = "Firing")
-	int GetAmmoLeft() const;
+	int32 GetAmmoLeft() const;
 
 protected:
 	UPROPERTY(BlueprintReadOnly, Category = "State")
@@ -55,20 +55,20 @@ private:
 	UTankTurret* Turret = nullptr;
 
 	void MoveBarrelTowards(FVector AimDirection);
+	bool IsBarrelMoving();
+
+	UPROPERTY(EditAnywhere, Category = "Setup")
+	TSubclassOf<AProjectile> ProjectileBlueprint;
 	
 	UPROPERTY(EditDefaultsOnly, Category = "Firing")
 	float LaunchSpeed = 4000; // Current 40 m/s
 
-	UPROPERTY(EditAnywhere, Category = "Setup")
-	TSubclassOf<AProjectile> ProjectileBlueprint;
-
 	UPROPERTY(EditDefaultsOnly, Category = "Firing")
 	float ReloadTimeInSeconds = 3;
 
-	double LastFireTime = 0;
-	bool IsBarrelMoving();
-	FVector AimDirection;
-
 	UPROPERTY(EditDefaultsOnly, Category = "Firing")
-	int AmmoLeft = 10;
+	int32 AmmoLeft = 10;
+
+	double LastFireTime = 0;
+	FVector AimDirection;
 };

@@ -31,6 +31,6 @@ private:
 
 	float CurrentThrottle = 0;
 
-	UFUNCTION(BlueprintCallable, Category = "Setup")
+	UFUNCTION()
 	void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit);
 };
