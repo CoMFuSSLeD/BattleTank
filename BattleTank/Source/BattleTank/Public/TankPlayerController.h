@@ -14,6 +14,8 @@ protected:
 	void FoundAimingComponent(UTankAimingComponent* AimingCompRef);
 
 private:
+	virtual void SetPawn(APawn* InPawn) override;
+	
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
@@ -29,4 +31,7 @@ private:
 	bool GetSightRayHitLocation(FVector& HitLocation) const;
 	bool GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const;
 	bool GetLookVectorHitLocation(FVector LookDirection, FVector& HitLocation) const;
+
+	UFUNCTION()
+	void OnPlayerTankDeath();
 };
